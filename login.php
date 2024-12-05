@@ -38,11 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <nav>
             <ul>
-                <li><a href="home_page.html">Главная</a></li> 
-                <li><a href="games_page.html">Игры</a></li>
-                <li><a href="library_page.html">Библиотека</a></li>
-                <li><a href="communication_page.html">Сообщество</a></li>
-                <li><a href="profile_page.html">Профиль</a></li>
+                <li><a href="home.html">Главная</a></li>
+                <li><a href="games.html">Игры</a></li>
+                <li><a href="community.html">Сообщество</a></li>
+                <li><a href="profile.html">Профиль</a></li>
             </ul>
         </nav>
     </header>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Игры - LineGames</title>
+    <link rel="stylesheet" href="games.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LineGames</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Главная</a></li>
+                <li><a href="games.html">Игры</a></li>
+                <li><a href="community.html">Сообщество</a></li>
+                <li><a href="profile.html">Профиль</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="games-content">
+        <h2>Игры</h2>
+        
+        <!-- Блок фильтров -->
+        <section class="filters">
+            <h3>Фильтры</h3>
+            <form id="filter-form">
+                <label for="genre">Жанр:</label>
+                <select id="genre">
+                    <option value="all">Все</option>
+                    <option value="Экшен">Экшен</option>
+                    <option value="РПГ">РПГ</option>
+                    <option value="Стратегия">Стратегия</option>
+                    <option value="Головоломки">Головоломки</option>
+                    <option value="Ужасы">Ужасы</option>
+                </select>
+                <button type="button" onclick="applyFilter()">Применить фильтр</button>
+            </form>
+        </section>
+        
+
+        <!-- Список игр -->
+        <section class="games-list">
+            <div class="game" data-genre="Экшен">
+                <img src="images/logo_cs.png" alt="Counter-Strike 2">
+                <h3>Counter-Strike 2</h3>
+                <p>Жанр: Экшен</p>
+                <p>Описание: Захватывающий шутер с уникальным игровым процессом.</p>
+                <button>Подробнее</button>
+            </div>
+            <div class="game" data-genre="Стратегия">
+                <img src="images/logo_dota.jpg" alt="Dota 2">
+                <h3>Dota 2</h3>
+                <p>Жанр: Стратегия</p>
+                <p>Описание: Погрузитесь в фэнтези-мир и сразитесь с мифическими существами.</p>
+                <button>Подробнее</button>
+            </div>
+            <div class="game" data-genre="РПГ,Экшен">
+                <img src="images/logo_gta.jpg" alt="Gta V">
+                <h3>Gta V</h3>
+                <p>Жанр: РПГ, Экшен</p>
+                <p>Описание: Постройте свою империю и управляйте армиями.</p>
+                <button>Подробнее</button>
+            </div>
+            <div class="game" data-genre="Экшен,РПГ,Стратегия">
+                <img src="images/logo_deadlock2.jpg" alt="Deadlock">
+                <h3>Deadlock</h3>
+                <p>Жанр: Экшен, РПГ, Стратегия</p>
+                <p>Описание: Это геройский шутер в формате 6v6, похожий на оригинальный Overwatch</p>
+                <button>Подробнее</button>
+            </div>
+            <div class="game" data-genre="Ужасы,Головоломки">
+                <img src="images/logo_amongus.jpg" alt="Among Us">
+                <h3>Among Us</h3>
+                <p>Жанр: Ужасы, Головоломки</p>
+                <p>Описание: Это многопользовательская компьютерная игра, разработанная американской игровой студией Innersloth</p>
+                <button>Подробнее</button>
+            </div>
+            <!-- Добавьте больше игр по аналогии -->
+        </section>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 LineGames. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function applyFilter() {
+            const selectedGenre = document.getElementById("genre").value;
+            const games = document.querySelectorAll(".game");
+
+            games.forEach((game) => {
+                const gameGenres = game.getAttribute("data-genre").split(","); // Разделяем жанры на массив
+
+                // Проверка, есть ли выбранный жанр в списке жанров игры
+                if (selectedGenre === "all" || gameGenres.includes(selectedGenre)) {
+                    game.style.display = "block";
+                } else {
+                    game.style.display = "none";
+                }
+            });
+        }
+    </script>
+</body>
+</html>
